@@ -1,0 +1,24 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "learning react",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "Saumya kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router": "^8.3.1",
+    "react-router-dom": "^6.30.6"
+  },
+  "browserslist": [
+    "last 5 chrome version"
+  ]
+}
