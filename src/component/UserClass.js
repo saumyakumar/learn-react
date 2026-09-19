@@ -7,7 +7,7 @@ class UserClass extends React.Component {
     this.state = {
       userInfo: {
         login: "User",
-        organization_url: "",
+        organizations_url: "",
         avatar_url: "test",
       },
     };
@@ -25,14 +25,14 @@ class UserClass extends React.Component {
 
   render() {
     console.log(this.props.name, "child render");
-    const { address } = this.props;
-    const { login, organization_url, avatar_url } = this.state.userInfo;
+    const { address, name } = this.props;
+    const { login, organizations_url, avatar_url } = this.state.userInfo;
 
     return (
-      <div>
-        <img src={avatar_url} />
+      <div style={{border: "2px solid", "marginBottom": "10px"}}>
+        <img src={avatar_url} alt="avatar" width="100" height="100" />
         <div>{login}</div>
-        <div>{organization_url}</div>
+        <div>{organizations_url}</div>
         <Address address={address} name={name} />
       </div>
     );

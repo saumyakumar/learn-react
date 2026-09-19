@@ -5,31 +5,12 @@ import FilterBtn from "./Button.jsx";
 import Shimmer from "./Shimmer.js";
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
+import useRestrauntList from "../utils/useRestrauntList.js";
 
 const Body = () => {
-  const [renderRestList, setRenderRestList] = useState([]);
-  const [filterResList, setFilterResList] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { renderRestList, filterResList, setFilterResList, setRenderRestList } = useRestrauntList();
 
-  const fetchData = async () => {
-    const data = await fetch(
-      `${homeApi}`,
-    );
-    const json = await data.json();
-    console.log(
-      "fetchData",
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-    );
-    setRenderRestList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-    );
-    setFilterResList(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants,
-    );
-  };
   const handleClick = () => {
     setFilterResList(renderRestList?.filter((res) => res.info.avgRating > 4.5));
   };
@@ -40,6 +21,7 @@ const Body = () => {
       ),
     );
   };
+
 
 
     return filterResList?.length === 0 ? <Shimmer /> : (

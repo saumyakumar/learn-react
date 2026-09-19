@@ -10,7 +10,7 @@ class Address extends React.Component {
   }
   render() {
     console.log(this.props.name, "address render");
-    const { address } = this.props.address;
+    const { address } = this.props;
     return <div>{address}</div>;
   }
 }

@@ -9,6 +9,9 @@ import About from "./component/About";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
 import Restraunt from "./component/Restraunt";
+import { lazy, Suspense } from "react";
+
+const Grocery = lazy(()=>import ('./component/Grocery'));
 
 const AppComponent = () => {
   return (
@@ -46,6 +49,10 @@ const appRouter = createBrowserRouter([
         path: "/restraunt/:id",
         element: <Restraunt />,
       },
+      {
+        path: "/grocery",
+        element: <Suspense fallback={<div>Loading...</div>}><Grocery /> </Suspense>,
+      }
     ],
   },
 ]);
